@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="/css/estilos.css">
+<title>Inicio</title>
+</head>
+<body>
+	
+	<div class="container bg-light d-flex justify-content-center flex-column" id="inicio">
+			
+	<h1 class="d-flex justify-content-center mb-3">Te damos la bienvenida al sistema de control de clubes de futbol</h1>
+	<h3 class="d-flex justify-content-center mb-3">Seleccione el apartado que quieres manejar</h3>
+	
+	<div class="d-flex justify-content-center flex-column">
+	    <a th:href="@{/verclubes}" class="button">
+	        <i class="fas fa-shield-alt me-2"></i>Club
+	    </a>
+	    <a th:href="@{/verasociaciones}" class="button">
+	        <i class="fas fa-sitemap me-2"></i>Asociación
+	    </a>
+	    <a th:href="@{/vercompeticiones}" class="button">
+	        <i class="fas fa-trophy me-2"></i>Competición
+	    </a>
+	    <a th:href="@{/verentrenadores}" class="button">
+	        <i class="fas fa-chalkboard-teacher me-2"></i>Entrenador
+	    </a>
+	    <a th:href="@{/verjugadores}" class="button">
+	        <i class="fas fa-futbol me-2"></i>Jugador
+	    </a>
+	</div>
+
+	</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
