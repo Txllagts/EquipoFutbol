@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+<div class="container mt-5">
+	<div class="container bg-light p-4 rounded shadow">
+        <h2 class="mb-4 text-center">Editar Club</h2>
+
+        <form th:action="@{/actualizarclub}" th:object="${club}" method="post">
+            <!-- Campo oculto para el ID -->
+            <input type="hidden" th:field="*{id}" />
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre del Club</label>
+                <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="entrenador" class="form-label">Entrenador</label>
+                <select id="entrenador" th:field="*{entrenador}" class="form-select" required>
+                    <option th:each="ent : ${entrenadores}" th:value="${ent.id}" th:text="${ent.nombre}"
+                            th:selected="${ent.id} == ${club.entrenador.id}">
+                        Nombre Entrenador
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="asociacion" class="form-label">Asociación</label>
+                <select id="asociacion" th:field="*{asociacion}" class="form-select" required>
+                    <option th:each="aso : ${asociaciones}" th:value="${aso.id}" th:text="${aso.nombre}"
+                            th:selected="${aso.id} == ${club.asociacion.id}">
+                        Asociación
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="competiciones" class="form-label">Competiciones</label>
+                <select id="competiciones" th:field="*{competiciones}" multiple class="form-select">
+                    <option th:each="comp : ${competiciones}" th:value="${comp.id}" th:text="${comp.nombre}"
+                            th:selected="${club.competiciones.contains(comp)}">
+                        Competición
+                    </option>
+                </select>
+            </div>
+
+            <div class="text-end">
+                <a th:href="@{/verclubes}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-success">Actualizar Club</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
